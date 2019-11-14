@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="PT-BR"
+
+	xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<title>Lista de Alunos</title>
+		<meta charset="utf-8">
+		
+		<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      
+      <link rel="stylesheet" href="style/styleCss.css"/>
+      
+	</head>
+	<body>
+	
+		<header>
+	
+	<!-- Dropdown Structure -->
+		<ul id="dropdown1" class="dropdown-content" >
+		  
+		</ul>
+		<nav>
+		  <div class="nav-wrapper">
+		  <img alt="" src="">
+		    <a class="brand-logo">Lista de Alunos</a>
+		    <ul class="right hide-on-med-and-down">
+		      
+		    <li><a href="/" class="waves-effect waves-light "><i class="material-icons">home</i></a></li>
+			<li><a href="/cadastrarLivro" class="waves-effect waves-light "><i class="material-icons left">add_circle_outline</i>Cadastrar Livro</a></li>
+			<li><a href="/livros" class="waves-effect waves-light "><i class="material-icons left">view_list</i>Lista de Livros</a></li>
+		
+			<li><a href="/cadastrarAluno" class="waves-effect waves-light "><i class="material-icons left">add_circle_outline</i>Cadastrar Aluno</a></li>
+			<li><a href="/alunos" class="waves-effect waves-light "><i class="material-icons left">view_list</i>Lista de Alunos</a></li>
+		
+			<li><a href="/fazerEmprestimo" class="waves-effect waves-light "><i class="material-icons left">fiber_new</i>Fazer Emprestimo</a></li>
+			<li><a href="/emprestimos" class="waves-effect waves-light "><i class="material-icons left">dehaze</i>Lista de Emprestimos</a></li>
+	
+	
+		    </ul>
+		  </div>
+		</nav>
+	
+	</header>
+		
+		<table class="container">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Matrícula</th>
+					<th>CPF</th>
+					<th>Data de Nascimento</th>
+					<th>Endereço</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="aluno : ${alunos}">
+					<td><span th:text="${aluno.nome}"></span></td>
+					<td><span th:text="${aluno.matricula}"></span></td>
+					<td><span th:text="${aluno.cpf}"></span></td>
+					<td><span th:text="${aluno.dataNascimento}"></span></td>
+					<td><span th:text="${aluno.endereco}"></span></td>
+					<td><a class="waves-effect waves-light" th:href="${(#mvc.url('AC#deletarAluno').arg(0, aluno.idAluno)).build()}"><i class="material-icons left">delete</i></a></td>
+				</tr>
+			</tbody>
+		</table>
+	
+	
+	
+	
+	<!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	
+	</body>
+</html>

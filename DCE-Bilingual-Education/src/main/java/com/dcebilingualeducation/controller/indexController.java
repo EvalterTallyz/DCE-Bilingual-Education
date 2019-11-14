@@ -10,4 +10,9 @@ public class indexController {
 	public String index() {
 		return "index";
 	}
+	
+	@RequestMapping("cursos")
+	public String cursos() {
+		return "cursos";
+	}
 }
