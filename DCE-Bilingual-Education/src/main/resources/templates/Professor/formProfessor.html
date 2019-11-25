@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="PT-BR"
+
+	xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	
+	<head>
+		<title>Cadastrar Professor</title>
+		<meta charset="utf-8">
+		
+		<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      
+      <link rel="stylesheet" href="style/styleCss.css"/>
+      
+	</head>
+	<body>
+	
+		<header>
+	
+		<nav>
+		  <div class="nav-wrapper">
+		    <a class="brand-logo">Cadastrar Professores</a>
+		    <ul class="right hide-on-med-and-down">
+		     
+			<li><a href="/" class="waves-effect waves-light "><i class="material-icons">home</i></a></li>
+			<li><a href="/cadastrarProfessores" class="waves-effect waves-light "><i class="material-icons left">add_circle_outline</i>Cadastrar Professores</a></li>
+			<li><a href="/professores" class="waves-effect waves-light "><i class="material-icons left">view_list</i>Lista de Professores</a></li>
+		
+			<li><a href="/cadastrarProfessores" class="waves-effect waves-light "><i class="material-icons left">add_circle_outline</i>Cadastrar Professor</a></li>
+			<li><a href="/professores" class="waves-effect waves-light "><i class="material-icons left">view_list</i>Lista de Professores</a></li>
+		
+			<li><a href="/fazerCadastro" class="waves-effect waves-light "><i class="material-icons left">fiber_new</i>Fazer Cadastro</a></li>
+			<li><a href="/cadastros" class="waves-effect waves-light "><i class="material-icons left">dehaze</i>Lista de Cadastros</a></li>
+	
+		    </ul>
+		  </div>
+		</nav>
+	
+	</header>
+	
+		<form class="container" method="post">
+			<div class="row">
+				<div class="input.field col s12">
+					Nome Completo: <input type="text" value="" name="nome"/>
+				</div>
+				
+				<div class="input.field col s4">
+					Matrícula: <input type="text" value="" name="matricula"/>
+				</div>
+				
+				<div class="input.field col s4">
+					CPF: <input type="text" value="" name="cpf"/>
+				</div>
+				
+				<div class="input.field col s4">
+					Data de Nascimento: <input type="date" value="" name="dataNascimento"/>
+				</div>
+				
+				<div class="input.field col s12">
+					Endereço: <input type="text" value="" name="endereco"/>
+				</div>
+			
+			</div>
+			<button class="waves-effect waves-light btn" type="submit">Cadastrar</button>
+			
+		</form>
+		<th:block th:include="mensagemValidacao"></th:block>
+		
+		
+		<!--JavaScript at end of body for optimized loading-->
+   		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    
+	</body>
+</html>
