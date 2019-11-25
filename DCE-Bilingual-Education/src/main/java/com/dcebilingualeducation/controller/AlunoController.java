@@ -30,7 +30,7 @@ public class AlunoController {
 	private String form(@Valid Aluno aluno, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
 			attributes.addFlashAttribute("mensagem", "Verifique os campos!");
-			return "redirect:/cadastrarEvento";
+			return "redirect:/cadastrarAluno";
 		}
 		
 		ar.save(aluno);
