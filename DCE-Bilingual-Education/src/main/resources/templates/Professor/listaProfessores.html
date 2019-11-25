@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="PT-BR"
+
+	xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<title>Lista de Professores</title>
+		<meta charset="utf-8">
+		
+		<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      
+      <link rel="stylesheet" href="style/styleCss.css"/>
+      
+	</head>
+	<body>
+	
+		<header>
+	
+	<!-- Dropdown Structure -->
+		<ul id="dropdown1" class="dropdown-content" >
+		  
+		</ul>
+		<nav>
+		  <div class="nav-wrapper">
+		  <img alt="" src="">
+		    <a class="brand-logo">Lista de Professores</a>
+		    <ul class="right hide-on-med-and-down">
+		      
+		    <li><a href="/" class="waves-effect waves-light "><i class="material-icons">home</i></a></li>
+			<li><a href="/cadastrarProfessor" class="waves-effect waves-light "><i class="material-icons left">add_circle_outline</i>Cadastrar Professor</a></li>
+			<li><a href="/professores" class="waves-effect waves-light "><i class="material-icons left">view_list</i>Lista de Professores</a></li>
+		
+			<li><a href="/cadastrarProfessores" class="waves-effect waves-light "><i class="material-icons left">add_circle_outline</i>Cadastrar Professor</a></li>
+			<li><a href="/professores" class="waves-effect waves-light "><i class="material-icons left">view_list</i>Lista de Professores</a></li>
+		
+			<li><a href="/fazerCadastro" class="waves-effect waves-light "><i class="material-icons left">fiber_new</i>Fazer Cadastro</a></li>
+			<li><a href="/cadastros" class="waves-effect waves-light "><i class="material-icons left">dehaze</i>Lista de Professores</a></li>
+	
+	
+		    </ul>
+		  </div>
+		</nav>
+	
+	</header>
+		
+		<table class="container">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Matrícula</th>
+					<th>CPF</th>
+					<th>Data de Nascimento</th>
+					<th>Endereço</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="professor : ${professores}">
+					<td><span th:text="${professor.nome}"></span></td>
+					<td><span th:text="${professor.matricula}"></span></td>
+					<td><span th:text="${professor.cpf}"></span></td>
+					<td><span th:text="${professor.dataNascimento}"></span></td>
+					<td><span th:text="${professor.endereco}"></span></td>
+					<td><a class="waves-effect waves-light" th:href="${(#mvc.url('AC#deletarProfessor').arg(0, professor.idProfessor)).build()}"><i class="material-icons left">delete</i></a></td>
+				</tr>
+			</tbody>
+		</table>
+	
+	
+	
+	
+	<!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	
+	</body>
+</html>
