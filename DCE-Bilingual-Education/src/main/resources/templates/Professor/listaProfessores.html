@@ -4,7 +4,7 @@
 	xmlns:th="http://thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 	<head>
-		<title>Lista de Alunos</title>
+		<title>Lista de Professores</title>
 		<meta charset="utf-8">
 		
 		<!--Import Google Icon Font-->
@@ -29,18 +29,18 @@
 		<nav>
 		  <div class="nav-wrapper">
 		  <img alt="" src="">
-		    <a class="brand-logo">Lista de Alunos</a>
+		    <a class="brand-logo">Lista de Professores</a>
 		    <ul class="right hide-on-med-and-down">
 		      
 		    <li><a href="/" class="waves-effect waves-light "><i class="material-icons">home</i></a></li>
-			<li><a href="/cadastrarAluno" class="waves-effect waves-light "><i class="material-icons left">add_circle_outline</i>Cadastrar Alunos</a></li>
-			<li><a href="/alunos" class="waves-effect waves-light "><i class="material-icons left">view_list</i>Lista de Alunos</a></li>
+			<li><a href="/cadastrarProfessor" class="waves-effect waves-light "><i class="material-icons left">add_circle_outline</i>Cadastrar Professor</a></li>
+			<li><a href="/professores" class="waves-effect waves-light "><i class="material-icons left">view_list</i>Lista de Professores</a></li>
 		
-			<li><a href="/cadastrarAluno" class="waves-effect waves-light "><i class="material-icons left">add_circle_outline</i>Cadastrar Aluno</a></li>
-			<li><a href="/alunos" class="waves-effect waves-light "><i class="material-icons left">view_list</i>Lista de Alunos</a></li>
+			<li><a href="/cadastrarProfessores" class="waves-effect waves-light "><i class="material-icons left">add_circle_outline</i>Cadastrar Professor</a></li>
+			<li><a href="/professores" class="waves-effect waves-light "><i class="material-icons left">view_list</i>Lista de Professores</a></li>
 		
 			<li><a href="/fazerCadastro" class="waves-effect waves-light "><i class="material-icons left">fiber_new</i>Fazer Cadastro</a></li>
-			<li><a href="/cadastros" class="waves-effect waves-light "><i class="material-icons left">dehaze</i>Lista de Cadastros</a></li>
+			<li><a href="/cadastros" class="waves-effect waves-light "><i class="material-icons left">dehaze</i>Lista de Professores</a></li>
 	
 	
 		    </ul>
@@ -60,13 +60,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="aluno : ${alunos}">
-					<td><span th:text="${aluno.nome}"></span></td>
-					<td><span th:text="${aluno.matricula}"></span></td>
-					<td><span th:text="${aluno.cpf}"></span></td>
-					<td><span th:text="${aluno.dataNascimento}"></span></td>
-					<td><span th:text="${aluno.endereco}"></span></td>
-					<td><a class="waves-effect waves-light" th:href="${(#mvc.url('AC#deletarAluno').arg(0, aluno.idAluno)).build()}"><i class="material-icons left">delete</i></a></td>
+				<tr th:each="professor : ${professores}">
+					<td><span th:text="${professor.nome}"></span></td>
+					<td><span th:text="${professor.matricula}"></span></td>
+					<td><span th:text="${professor.cpf}"></span></td>
+					<td><span th:text="${professor.dataNascimento}"></span></td>
+					<td><span th:text="${professor.endereco}"></span></td>
+					<td><a class="waves-effect waves-light" th:href="${(#mvc.url('AC#deletarProfessor').arg(0, professor.idProfessor)).build()}"><i class="material-icons left">delete</i></a></td>
 				</tr>
 			</tbody>
 		</table>
