@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymaleaf/layout">
+	<head>
+		<title>Cursos</title>
+	
+	 <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		
+	  <Link rel="stylesheet" href="style/styleCss.css"/>
+		
+	</head>
+	<body>
+	
+		<header>
+		
+			<nav>
+	    		<div class="nav-wrapper">
+	      			<a href="#" class="brand-logo">Cadastro de Turmas</a>
+	      				<ul id="nav-mobile" class="right hide-on-med-and-down">
+	        				<li><a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Lista de Turmas</a></li>
+	      				</ul>
+	    		</div>
+	  		</nav>
+		
+		</header>
+		
+		<th:block th:include="mensagemValidacao"></th:block>
+		
+		<div class="container formTurma">
+		<form class="container" method="post">
+		
+			Curso: <input type="text" value="" name="curso"/>
+			
+			<div class="row">
+			
+				<div class="input-field col s6">
+					Professor(a): <input type="text" value="" name="professor"/>
+				</div>
+			
+				<div class="input-field col s3">	
+					Sala: <input type="text" value="" name="sala"/>
+				</div>
+				
+				<div class="input-field col s3">	
+					Turno: <input type="text" value="" name="turno"/>
+				</div>
+			
+				<div class="input-field col s3">
+					Horario: <input type="time" value="" name="horario"/>
+				</div>
+			
+			</div>
+			
+			<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+		
+		</form>
+		</div>
+	
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	
+	</body>
+
+</html>
