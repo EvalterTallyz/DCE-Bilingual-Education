@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>Lista de Turmas</title>
+	
+	 <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	 <Link rel="stylesheet" href="style/styleCss.css"/>
+	 
+</head>
+<body>
+	
+	<h1>Turma</h1>
+	<h3> <a href="/turmas" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Lista de Turmas</a></h3>
+	
+	<div th:each="turma : ${turma}" class="container detalhesTurma">
+		
+	<h5>Detalhes da Turma</h5>
+		
+		<div class="row">
+		
+			<p>Curso: <span th:text="${turma.curso}"></span></p>
+			<p>Professor(a): <span th:text="${turma.professor}"></span></p>
+			<p>Sala: <span th:text="${turma.sala}"></span></p>
+			<p>Turno: <span th:text="${turma.turno}"></span></p>
+			<p>Horario: <span th:text="${turma.horario}"></span></p>
+		
+		</div>
+	
+	</div>
+		
+		<th:block th:include="mensagemValidacao"></th:block>
+		
+		<div class="container formAluno">
+			<form method="post" th:object="${aluno}">
+		
+				Nome: <input type="text" value="" name="nome" placeholder="Nome Completo"/>
+				Rg: <input type="text" value="" name="rg"  placeholder="AA-00.000.000" class="validate"/>
+				Matricula: <input type="text" value="" name="matricula"  placeholder="AA-00.000.000" class="validate"/>
+				CPF: <input type="text" value="" name="cpf"  placeholder="AA-00.000.000" class="validate"/>
+				Data de Nascimento: <input type="text" value="" name="dataNascimento"  placeholder="AA-00.000.000" class="validate"/>
+				Endereço: <input type="text" value="" name="endereco"  placeholder="AA-00.000.000" class="validate"/>
+			
+				<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
+				
+			</form>
+		</div>
+	<h5>Lista de Alunos: </h5>
+	
+	<table class="container tablelaAluno">
+	
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>RG</th>
+				<th>Matricula</th>
+				<th>CPF</th>
+				<th>Data de Nascimento</th>
+				<th>Endereço</th>
+				<th>Deletar</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="aluno : ${alunos}">
+				<td><span th:text="${aluno.nome}"></span></td>
+				<td><span th:text="${aluno.rg}"></span></td>
+				<td><span th:text="${aluno.matricula}"></span></td>
+				<td><span th:text="${aluno.cpf}"></span></td>
+				<td><span th:text="${aluno.dataNascimento}"></span></td>
+				<td><span th:text="${aluno.endereco}"></span></td>
+				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('TA#deletarAluno').arg(0, aluno.rg).arg(0, aluno.matricula).arg(0, aluno.cpf).arg(0, aluno.dataNascimento).arg(0, aluno.endereco)).build()}"><i class="material-icons left">delete</i></a></td>
+			</tr>
+		</tbody>
+		
+	</table>
+	
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+</body>
+
+</html>
