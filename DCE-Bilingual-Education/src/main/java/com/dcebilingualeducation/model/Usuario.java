@@ -4,48 +4,71 @@ import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.validation.constraints.NotEmpty;
-import javax.persistence.JoinColumn;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 
 @Entity
 public class Usuario implements UserDetails{
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8331851235442801580L;
+
 	@Id
-	private String login;
-	
-	private String nomeCompleto;
-	
-	@NotEmpty
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@NotNull
+	private String nome;
+	@NotNull
+	private String email;
+	@NotNull
+	private String matricula;
+	@NotNull
 	private String senha;
-	
+
 	@ManyToMany
-	@JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(
-			name = "usuario_id", referencedColumnName = "login"), 
-			inverseJoinColumns = @JoinColumn(
-	        name = "role_id", referencedColumnName = "nomeRole")) 
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Role> roles;
 
-	public String getLogin() {
-		return login;
+	public Long getId() {
+		return id;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public String getNomeCompleto() {
-		return nomeCompleto;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
 	}
 
 	public String getSenha() {
@@ -66,7 +89,7 @@ public class Usuario implements UserDetails{
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return (Collection<? extends GrantedAuthority>) roles;
+		return this.roles;
 	}
 
 	@Override
@@ -76,7 +99,7 @@ public class Usuario implements UserDetails{
 
 	@Override
 	public String getUsername() {
-		return this.login;
+		return this.matricula;
 	}
 
 	@Override
@@ -98,6 +121,36 @@ public class Usuario implements UserDetails{
 	public boolean isEnabled() {
 		return true;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nome=" + nome + ", matricula=" + matricula + ", senha=" + senha + ", roles="
+				+ roles + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
 
 }
