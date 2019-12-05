@@ -15,18 +15,13 @@ public class Turma implements Serializable {
 
 		private static final long serialVersionUID = 1L;
 
-		private long codigo;
-		
-		public long getCodigo() {
-			return codigo;
-		}
-		public void setCodigo(long codigo) {
-			this.codigo = codigo;
-		}
 		
 		@Id
 		@GeneratedValue(strategy= GenerationType.AUTO)
-		private long curso;
+		private long codigo;
+		
+		@NotEmpty
+		private String curso;
 		
 		@NotEmpty
 		private String professor;
@@ -44,10 +39,10 @@ public class Turma implements Serializable {
 		private List<Aluno> alunos;
 
 		
-		public long getCurso() {
+		public String getCurso() {
 			return curso;
 		}
-		public void setCurso(long curso) {
+		public void setCurso(String curso) {
 			this.curso = curso;
 		}
 		public String getProfessor() {
@@ -83,5 +78,12 @@ public class Turma implements Serializable {
 		public static long getSerialversionuid() {
 			return serialVersionUID;
 		}
+		public long getCodigo() {
+			return codigo;
+		}
+		public void setCodigo(long codigo) {
+			this.codigo = codigo;
+		}
+		
 	
 }
