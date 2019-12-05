@@ -6,6 +6,6 @@ import com.dcebilingualeducation.model.Usuario;
 
 public interface UsuarioRepository extends CrudRepository<Usuario, String>{
 	
-	Usuario findByLogin(String login);
+	Usuario findByMatricula(String matricula);
 
 }

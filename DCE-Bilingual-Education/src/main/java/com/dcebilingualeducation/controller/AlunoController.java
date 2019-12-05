@@ -48,7 +48,7 @@ public class AlunoController {
 		return mv;
 	}
 	
-	@RequestMapping("/deletarAluno")
+	@RequestMapping("/deletarAlunoo")
 	public String deletarAluno(long idAluno) {
 		Aluno aluno = ar.findByIdAluno(idAluno);
 		ar.delete(aluno);
