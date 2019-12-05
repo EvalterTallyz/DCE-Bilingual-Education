@@ -1,7 +1,5 @@
 package com.dcebilingualeducation.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,12 +8,11 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-public class Aluno implements Serializable{
+public class Aluno {
 		
-		private static final long serialVersionUID = 1L;
 		
 		@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		@GeneratedValue(strategy = GenerationType.AUTO)
 		private long idAluno;
 
 		
@@ -103,10 +100,5 @@ public class Aluno implements Serializable{
 		public void setTurma(Turma turma) {
 			this.turma = turma;
 		}
-
-		public static long getSerialversionuid() {
-			return serialVersionUID;
-		}
-	
 		
 }
