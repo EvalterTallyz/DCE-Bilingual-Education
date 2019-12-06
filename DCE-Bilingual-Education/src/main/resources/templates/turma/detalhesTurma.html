@@ -52,6 +52,8 @@
 			
 				<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
 				
+				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+				
 			</form>
 		</div>
 	<h5>Lista de Alunos: </h5>

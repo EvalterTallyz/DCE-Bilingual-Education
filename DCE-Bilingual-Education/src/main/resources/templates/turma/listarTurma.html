@@ -55,7 +55,7 @@
 				<td><span th:text="${turma.sala}"></span></td>
 				<td><span th:text="${turma.turno}"></span></td>
 				<td><span th:text="${turma.horario}"></span></td>
-				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('TA#deletarTurma').arg(0, turma.codigo)).build()}"><i class="material-icons left">delete</i></a></td>
+				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('TC#deletarTurma').arg(0, turma.codigo)).build()}"><i class="material-icons left">delete</i></a></td>
 			</tr>
 		</tbody>
 	</table>

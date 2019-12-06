@@ -18,6 +18,11 @@ public class ProfessorController {
 
 	@Autowired
 	private ProfessorRepository pr;
+	
+	@RequestMapping("Home_Professor")
+	public String prof() {
+		return "indexProf";
+	}
 
 	@RequestMapping(value = "/cadastrarProfessor", method = RequestMethod.GET)
 	private String form() {
