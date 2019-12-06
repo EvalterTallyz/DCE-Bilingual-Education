@@ -65,6 +65,8 @@
 			</div>
 			<button class="waves-effect waves-light btn" type="submit">Cadastrar</button>
 			
+			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+			
 		</form>
 		<th:block th:include="mensagemValidacao"></th:block>
 		
