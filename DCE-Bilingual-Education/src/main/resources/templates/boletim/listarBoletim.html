@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="PT-BR"
+
+	xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<title>Notas</title>
+		<meta charset="utf-8">
+		
+		<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      
+      <link rel="stylesheet" href="style/styleCss.css"/>
+      
+	</head>
+	<body>
+	
+		<header>
+	
+	<!-- Dropdown Structure -->
+		<ul id="dropdown1" class="dropdown-content" >
+		  
+		</ul>
+		<nav>
+		  <div class="nav-wrapper">
+		  <img alt="" src="">
+		    <a class="brand-logo">Boletins</a>
+		    <ul class="right hide-on-med-and-down">
+		      
+		    <li><a href="/" class="waves-effect waves-light "><i class="material-icons">home</i></a></li>
+			<li><a href="/cadastrarProfessor" class="waves-effect waves-light "><i class="material-icons left">add_circle_outline</i>Cadastrar Professor</a></li>
+			<li><a href="/professores" class="waves-effect waves-light "><i class="material-icons left">view_list</i>Lista de Professores</a></li>
+		
+			<li><a href="/cadastrarProfessores" class="waves-effect waves-light "><i class="material-icons left">add_circle_outline</i>Cadastrar Professor</a></li>
+			<li><a href="/professores" class="waves-effect waves-light "><i class="material-icons left">view_list</i>Lista de Professores</a></li>
+		
+			<li><a href="/fazerCadastro" class="waves-effect waves-light "><i class="material-icons left">fiber_new</i>Fazer Cadastro</a></li>
+			<li><a href="/cadastros" class="waves-effect waves-light "><i class="material-icons left">dehaze</i>Lista de Professores</a></li>
+	
+	
+		    </ul>
+		  </div>
+		</nav>
+	
+	</header>
+		
+		<table class="striped">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>1º Bimestre</th>
+					<th>2º Bimestre</th>
+					<th>3º Bimestre</th>
+					<th>4º Bimestre</th>
+					<th>Condição Final</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="boletim : ${boletins}">
+					<td><span th:text="${boletim.nome}"></span></td>
+					<td><span th:text="${boletim.primeiroBimestre}"></span></td>
+					<td><span th:text="${boletim.segundoBimestre}"></span></td>
+					<td><span th:text="${boletim.terceiroBimestre}"></span></td>
+					<td><span th:text="${boletim.quartoBimestre}"></span></td>
+					<td><span th:text="${boletim.condicaoFinal}"></span></td>
+					<td><a class="waves-effect waves-light" th:href="${(#mvc.url('BC#deletarBoletim').arg(0, boletim.idBoletim)).build()}"><i class="material-icons left">delete</i></a></td>
+				</tr>
+			</tbody>
+		</table>
+	
+	
+	
+	
+	<!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	
+	</body>
+</html>
