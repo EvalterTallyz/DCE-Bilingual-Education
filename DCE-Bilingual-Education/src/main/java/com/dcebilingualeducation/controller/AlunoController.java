@@ -18,6 +18,11 @@ import com.dcebilingualeducation.repository.AlunoRepository;
 @Controller
 public class AlunoController {
 	
+	@RequestMapping("Home_Aluno")
+	public String aluno() {
+		return "indexAluno";
+	}
+	
 	@Autowired
 	private AlunoRepository ar;
 

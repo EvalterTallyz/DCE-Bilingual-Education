@@ -8,9 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -22,14 +20,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.csrf().disable().authorizeRequests()
-		.antMatchers(HttpMethod.GET, "/").permitAll()
-		.antMatchers(HttpMethod.GET, "/cursos").permitAll()
-		.antMatchers(HttpMethod.GET, "/fazerLogin").permitAll()
-		.antMatchers(HttpMethod.GET, "/cadastrarAlunoAluno").hasAnyRole("ADMIN")
-		.antMatchers(HttpMethod.POST, "/cadastrarAlunoAluno").hasAnyRole("ADMIN")
+		.antMatchers(HttpMethod.GET, "/*").permitAll()
+		.antMatchers(HttpMethod.GET, "/ADMIN/**").hasAnyRole("ADMIN")
+		.antMatchers(HttpMethod.POST, "/ADMIN/**").hasAnyRole("ADMIN")
 		.anyRequest().authenticated()
+		
 		.and().formLogin().permitAll()
-		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+		
+		.and()
+			.logout()
+			.logoutSuccessUrl("/")
+			.permitAll();
+		
 	}
 
 	@Override
@@ -40,6 +42,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Override
 	public void configure(WebSecurity web){
-		web.ignoring().antMatchers("/materialize/**", "/style/**");
+		web.ignoring().antMatchers("/materialize/**", "/style/**", "/img/**");
 	}
 }
