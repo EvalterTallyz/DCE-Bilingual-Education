@@ -18,7 +18,7 @@ public class Turma implements Serializable {
 		
 		@Id
 		@GeneratedValue(strategy= GenerationType.AUTO)
-		private long codigo;
+		private Long codigo;
 		
 		@NotEmpty
 		private String curso;
@@ -78,10 +78,10 @@ public class Turma implements Serializable {
 		public static long getSerialversionuid() {
 			return serialVersionUID;
 		}
-		public long getCodigo() {
+		public Long getCodigo() {
 			return codigo;
 		}
-		public void setCodigo(long codigo) {
+		public void setCodigo(Long codigo) {
 			this.codigo = codigo;
 		}
 		

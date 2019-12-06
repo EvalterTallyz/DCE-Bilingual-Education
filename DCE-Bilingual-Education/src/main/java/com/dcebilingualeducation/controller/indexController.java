@@ -26,20 +26,11 @@ public class indexController {
 		return "fazerLogin";
 	}
 	
-	@RequestMapping("Home_Aluno")
-	public String aluno() {
-		return "indexAluno";
-	}
 	
-	@RequestMapping("Home_Professor")
-	public String prof() {
-		return "indexProf";
-	}
 	
-	@RequestMapping("Home_ADMIN")
-	public String admin() {
-		return "indexADM";
-	}
+	
+	
+	
 	
 	
 }

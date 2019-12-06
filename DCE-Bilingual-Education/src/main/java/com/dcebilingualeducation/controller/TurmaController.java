@@ -44,7 +44,7 @@ public class TurmaController {
 		
 		@RequestMapping("/turmas")
 		public ModelAndView listaTurmas(){
-			ModelAndView mv = new ModelAndView("index");
+			ModelAndView mv = new ModelAndView("turma/listarTurma");
 			Iterable<Turma> turmas = tr.findAll();
 			mv.addObject("turmas", turmas);
 			return mv;
