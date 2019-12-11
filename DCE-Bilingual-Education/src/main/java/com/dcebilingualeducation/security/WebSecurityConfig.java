@@ -2,7 +2,6 @@ package com.dcebilingualeducation.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -20,9 +19,28 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.csrf().disable().authorizeRequests()
-		.antMatchers("/*").permitAll()
-		.antMatchers("/indexAdmin").hasAnyRole("ADMIN")
+		.antMatchers("/").permitAll()
+		.antMatchers("/cursos").permitAll()
+		.antMatchers("/fazerLogin").permitAll()
+		
+	
 		.antMatchers("/indexAdmin").hasAnyRole("ADMIN") 
+		.antMatchers("/cadastrarProfessor").hasAnyRole("ADMIN") 
+		.antMatchers("/professores").hasAnyRole("ADMIN") 
+		.antMatchers("/cadastrarTurma").hasAnyRole("ADMIN") 
+		.antMatchers("/turmas").hasAnyRole("ADMIN")
+		
+		.antMatchers("/Home_Professor").hasAnyRole("PROF") 
+		.antMatchers("/cadastrarBoletim").hasAnyRole("PROF") 
+		.antMatchers("/boletins").hasAnyRole("PROF")
+		.antMatchers("/turmasp").hasAnyRole("PROF")
+		
+		.antMatchers("/Home_Aluno").hasAnyRole("ALUNO") 
+		.antMatchers("/boletinsA").hasAnyRole("ALUNO") 
+		
+		
+		
+		
 		.anyRequest().authenticated()
 		
 		.and().formLogin().permitAll()

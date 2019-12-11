@@ -19,51 +19,73 @@
       <link rel="stylesheet" href="style/styleCss.css"/>
       
 	</head>
-	<body>
+	<body class="indigo lighten-5">
 	
 		<header>
 	
-		<nav>
-		  <div class="nav-wrapper">
-		    <a class="brand-logo">Cadastrar Notas</a>
-		    <ul class="right hide-on-med-and-down">
-		     
-			<li><a href="/" class="waves-effect waves-light "><i class="material-icons">home</i></a></li>
-			<li><a href="/cadastrarProfessores" class="waves-effect waves-light "><i class="material-icons left">add_circle_outline</i>Cadastrar Professores</a></li>
-			<li><a href="/professores" class="waves-effect waves-light "><i class="material-icons left">view_list</i>Lista de Professores</a></li>
-			<li><a href="/fazerCadastro" class="waves-effect waves-light "><i class="material-icons left">fiber_new</i>Fazer Cadastro</a></li>
-			<li><a href="/boletins" class="waves-effect waves-light "><i class="material-icons left">dehaze</i>Lista de Notas</a></li>
+	<nav class="nav-extended">
+		<div class="nave ">
+			<div class="nav-wrapper ">
+				<a class="brand-logo valign-wrapper " style="margin-left: 38%;" href="/"> 
+					<img class="valign-wrapper " style="width: 240px;  margin-top: 7px" src="img/DCE_Menu.png">
+				</a>
 	
-		    </ul>
-		  </div>
-		</nav>
+			</div>
+				
+			<div class="navbar-fixed ">
+				<div class="nav-wrapper">     					 
+      					
+      					<ul class=" hide-on-med-and-down">
+							<li><a href="/Home_Professor" class="waves-effect waves-light hoverable"><i class="material-icons left">home</i>|</a></li>
+							<li><a href="/turmasp" class="waves-effect waves-light hoverable"><i class="material-icons left">storage</i>Turmas |</a></li>
+							<li><a href="/cadastrarBoletim" class="waves-effect waves-light hoverable"><i class="material-icons  left">add_box</i>Adicionar Notas |</a></li>
+							<li><a href="/boletins" class="waves-effect waves-light hoverable"><i class="material-icons left">remove_red_eye</i>Vizualizar Notas |</a></li>							
+						</ul>
+						
+						<ul class="" style="margin-left: 91%;">
+							<li><a href="/logout" class="waves-effect waves-light  btn white hoverable "><span class="indigo-text ">Sair</span></a></li>
+						</ul>
+      					
+    			</div>
+    		</div>
+				
+		</div>		
+	</nav>
+
+</header>
+
+<br>
+<br>
+<br>
 	
-	</header>
-	
-		<form class="container" method="post">
-			<div class="row">
-				<div class="input.field col s12">
-					Nome: <input type="text" value="" name="nome"/>
+	<th:block th:include="mensagemValidacao"></th:block>
+		<form class="container center " method="post">
+			<div class="row card-panel">
+				
+				
+				<div  class="input-field col s12">
+    				<label>Nome:</label> <input type="text" value="" name="nome"/>
+			  </div>
+				
+				
+				<div class="input.field col s2">
+					 <label>1º Bimestre:</label> <input type="text" value="" name="primeiroBimestre"/>
 				</div>
 				
-				<div class="input.field col s3">
-					1º Bimestre: <input type="text" value="" name="primeiroBimestre"/>
+				<div class="input.field col s2">
+					<label>2º Bimestre:</label> <input type="text" value="" name="segundoBimestre"/>
 				</div>
 				
-				<div class="input.field col s3">
-					2º Bimestre: <input type="text" value="" name="segundoBimestre"/>
+				<div class="input.field col s2">
+					<label>3º Bimestre:</label> <input type="text" value="" name="terceiroBimestre"/>
 				</div>
 				
-				<div class="input.field col s3">
-					3º Bimestre: <input type="text" value="" name="terceiroBimestre"/>
+				<div class="input.field col s2">
+					<label>4º Bimestre:</label> <input type="text" value="" name="quartoBimestre"/>
 				</div>
 				
-				<div class="input.field col s3">
-					4º Bimestre: <input type="text" value="" name="quartoBimestre"/>
-				</div>
-				
-				<div class="input.field col s6">
-					Condicão Final: <input type="text" value="" name="condicaoFinal"/>
+				<div class="input.field col s4">
+					<label>Condicão Final:</label> <input type="text" value="" name="condicaoFinal"/>
 				</div>
 			
 			</div>
@@ -72,11 +94,39 @@
 <!--			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> -->
 			
 		</form>
-		<th:block th:include="mensagemValidacao"></th:block>
+		
+		
+		
+		<main></main>
+	<footer class="page-footer cor">
+		<div class="footer-copyright">
+			<div class="container">©Desenvolvido por 
+				<a class="hoverable" href="https://www.instagram.com/daryjanee/">Daryjane</a>,
+				<a class="hoverable" href="https://www.instagram.com/deboracoosta/">Débora</a>,
+				<a class="hoverable" href="https://www.instagram.com/evalter.tallyz/">Evalter</a>.				
+				
+				<a class="grey-text text-lighten-4 right"	href="https://www.twitter.com"> 
+					<img class="valign-wrapper hoverable" style="width: 20px; margin-left: 8px;" src="img/tw.png"></a>
+									
+				<a class="grey-text text-lighten-4 right"	href="https://www.facebook.com/"> 
+					<img class="valign-wrapper hoverable" style="width: 20px; margin-left: 8px; " src="img/face.png">  </a>
+					
+				<a class="grey-text text-lighten-4 right"	href="https://www.instagram.com/"> 
+					<img class="valign-wrapper hoverable" style="width: 20px; margin-left: 8px;" src="img/IG.png">  </a>
+			</div>
+		</div>
+	</footer>
 		
 		
 		<!--JavaScript at end of body for optimized loading-->
    		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+   		<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+	    $('select').formSelect();
+	  });
+	</script>
     
 	</body>
 </html>

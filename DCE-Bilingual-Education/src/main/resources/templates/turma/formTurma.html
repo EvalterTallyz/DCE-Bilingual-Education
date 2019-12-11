@@ -1,59 +1,110 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymaleaf/layout">
-	<head>
-		<title>Cursos</title>
-	
-	 <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+<html lang="PT-BR" xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		
-	  <Link rel="stylesheet" href="style/styleCss.css"/>
-		
-	</head>
-	<body>
+<head>
+<title>DCE Bilingual Education</title>
+<meta charset="utf-8">
+
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+
+<link type="text/css" rel="stylesheet" href="style/styleCss.css"
+	media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="icon" type="imagem/png" href="img/dcee.png" />
+
+</head>
+	<body class="indigo lighten-5">
+
+	<header>
 	
-		<header>
-		
-			<nav>
-	    		<div class="nav-wrapper">
-	      			<a href="#" class="brand-logo">Cadastro de Turmas</a>
-	      				<ul id="nav-mobile" class="right hide-on-med-and-down">
-	        				<li><a href="/turmas" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Lista de Turmas</a></li>
-	      				</ul>
-	    		</div>
-	  		</nav>
-		
-		</header>
+	<nav class="nav-extended">
+		<div class="nave ">
+			<div class="nav-wrapper ">
+				<a class="brand-logo valign-wrapper " style="margin-left: 38%;" href="/"> 
+					<img class="valign-wrapper " style="width: 240px;  margin-top: 7px" src="img/DCE_Menu.png">
+				</a>
+	
+			</div>
+				
+			<div class="navbar-fixed ">
+				<div class="nav-wrapper">     					 
+      					
+      					<ul class=" hide-on-med-and-down">
+							<li><a href="/indexAdmin" class="waves-effect waves-light hoverable"><i class="material-icons left">home</i>|</a></li>
+							<li><a href="/cadastrarProfessor" class="waves-effect waves-light hoverable"><i class="material-icons  left">person_add</i>Cadastrar Professor |</a></li>
+							<li><a href="/professores" class="waves-effect waves-light hoverable"><i class="material-icons left">format_list_bulleted</i>Lista de Professores |</a></li>
+							<li><a href="/cadastrarTurma" class="waves-effect waves-light hoverable"><i class="material-icons  left">add_circle</i>Adicionar Turma |</a></li>
+							<li><a href="/turmas" class="waves-effect waves-light hoverable"><i class="material-icons left">storage</i>Turmas |</a></li>
+							
+						</ul>
+						
+						<ul class="" style="margin-left: 91%;">
+							<li><a href="/logout" class="waves-effect waves-light  btn white hoverable "><span class="indigo-text ">Sair</span></a></li>
+						</ul>
+      					
+    			</div>
+    		</div>
+				
+		</div>		
+	</nav>
+
+</header>
+<br>
+<br>
 		
 		<th:block th:include="mensagemValidacao"></th:block>
 		
-		<div class="container formTurma">
+		
 		<form class="container" method="post">
 		
-			Curso: <input type="text" value="" name="curso"/>
 			
-			<div class="row">
 			
-				<div class="input-field col s6">
-					Professor(a): <input type="text" value="" name="professor"/>
+			<div class="row card-panel">
+			
+							
+				<div class="input-field col s12">	
+					Curso: <input type="text" value="" name="curso"/>
 				</div>
+				
 			
-				<div class="input-field col s3">	
+				<div class="input-field col s4">	
 					Sala: <input type="text" value="" name="sala"/>
 				</div>
 				
-				<div class="input-field col s3">	
-					Turno: <input type="text" value="" name="turno"/>
-				</div>
+				<div class="input-field col s4">Turno
+    				<select  name="turno">
+					      <option value="" disabled selected>Selecione um turno</option>
+					      <option value="Matutino">Matutino</option>
+					      <option value="Vespertino">Vespertino</option>
+					      <option value="Noturno">Noturno</option>
+			    	</select>
+			   		 <label></label>
+			  </div>
 			
-				<div class="input-field col s3">
+				<div class="input-field col s4">
 					Horario: <input type="time" value="" name="horario"/>
 				</div>
+				
+				
+				<div  class="input-field col s12">Professor(a):
+    				<select  name="professor">
+					      <option value="" disabled selected>Selecione um Professor</option>
+					      <span th:each="professor : ${professores}">
+					     	 <option th:text="${professor.nome}"></option>
+					      </span>
+			    	</select>
+			   		 
+			  </div>
+				
 			
 			</div>
 			
@@ -62,9 +113,37 @@
 <!-- 		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> -->
 		
 		</form>
+		
+		
+					
+<main></main>	
+	<footer class="page-footer cor">
+		<div class="footer-copyright">
+			<div class="container">©Desenvolvido por 
+				<a class="hoverable" href="https://www.instagram.com/daryjanee/">Daryjane</a>,
+				<a class="hoverable" href="https://www.instagram.com/deboracoosta/">Débora</a>,
+				<a class="hoverable" href="https://www.instagram.com/evalter.tallyz/">Evalter</a>.				
+				
+				<a class="grey-text text-lighten-4 right"	href="https://www.twitter.com"> 
+					<img class="valign-wrapper hoverable" style="width: 20px; margin-left: 8px;" src="img/tw.png"></a>
+									
+				<a class="grey-text text-lighten-4 right"	href="https://www.facebook.com/"> 
+					<img class="valign-wrapper hoverable" style="width: 20px; margin-left: 8px; " src="img/face.png">  </a>
+					
+				<a class="grey-text text-lighten-4 right"	href="https://www.instagram.com/"> 
+					<img class="valign-wrapper hoverable" style="width: 20px; margin-left: 8px;" src="img/IG.png">  </a>
+			</div>
 		</div>
+	</footer>
 	
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+	    $('select').formSelect();
+	  });
+	</script>
 	
 	</body>
 

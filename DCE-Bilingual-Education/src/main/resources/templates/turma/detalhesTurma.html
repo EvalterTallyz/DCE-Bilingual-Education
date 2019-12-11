@@ -1,32 +1,76 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="PT-BR" xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
 <head>
-	<title>Lista de Turmas</title>
-	
-	 <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+<title>DCE Bilingual Education</title>
+<meta charset="utf-8">
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
 
-	 <Link rel="stylesheet" href="style/styleCss.css"/>
-	 
+<link type="text/css" rel="stylesheet" href="style/styleCss.css"
+	media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="icon" type="imagem/png" href="img/dcee.png" />
+
 </head>
-<body>
 
+<body class="indigo lighten-5">
+
+	<header>
 
 	
-	<h1>Turma</h1>
-	<h3> <a href="/turmas" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Lista de Turmas</a></h3>
+	<nav class="nav-extended">
+		<div class="nave ">
+			<div class="nav-wrapper ">
+				<a class="brand-logo valign-wrapper " style="margin-left: 38%;" href="/"> 
+					<img class="valign-wrapper " style="width: 240px;  margin-top: 7px" src="img/DCE_Menu.png">
+				</a>
+	
+			</div>
+				
+			<div class="navbar-fixed ">
+				<div class="nav-wrapper">     					 
+      					
+      					<ul class=" hide-on-med-and-down">
+							<li><a href="/indexAdmin" class="waves-effect waves-light hoverable"><i class="material-icons left">home</i>|</a></li>
+							<li><a href="/cadastrarProfessor" class="waves-effect waves-light hoverable"><i class="material-icons  left">person_add</i>Cadastrar Professor |</a></li>
+							<li><a href="/professores" class="waves-effect waves-light hoverable"><i class="material-icons left">format_list_bulleted</i>Lista de Professores |</a></li>
+							<li><a href="/cadastrarTurma" class="waves-effect waves-light hoverable"><i class="material-icons  left">add_circle</i>Adicionar Turma |</a></li>
+							<li><a href="/turmas" class="waves-effect waves-light hoverable"><i class="material-icons left">storage</i>Turmas |</a></li>
+							
+						</ul>
+						
+						<ul class="" style="margin-left: 91%;">
+							<li><a href="/logout" class="waves-effect waves-light  btn white hoverable "><span class="indigo-text ">Sair</span></a></li>
+						</ul>
+      					
+    			</div>
+    		</div>
+				
+		</div>		
+	</nav>
+
+</header>
+<br>
+	<br>
 	
 	<div th:each="turma : ${turma}" class="container detalhesTurma">
 		
-	<h5>Detalhes da Turma</h5>
-		
-		<div class="row">
+	<div class="card-panel">
+
+	<h5 class="center ">Detalhes da turma</h5>
+	</div>
+	
+		<div class="row card-panel">
 		
 			<p>Curso: <span th:text="${turma.curso}"></span></p>
 			<p>Professor(a): <span th:text="${turma.professor}"></span></p>
@@ -42,23 +86,52 @@
 		
 		<div class="container formAluno">
 			<form method="post" th:object="${aluno}">
-		
-				Nome: <input type="text" value="" name="nome" placeholder="Nome Completo"/>
+				<div class="row card-panel">
+				<div class="input.field col s6">
+					Nome: <input type="text" value="" name="nome" placeholder="Nome Completo"/>
+				</div>
+				<div class="input.field col s6">
+				Endereço: <input type="text" value="" name="endereco"  placeholder="AA-00.000.000" class="validate"/>
+				</div>
+				
+				<div class="input.field col s3">
 				Rg: <input type="text" value="" name="rg"  placeholder="AA-00.000.000" class="validate"/>
+				</div>
+				
+				<div class="input.field col s3">
 				Matricula: <input type="text" value="" name="matricula"  placeholder="AA-00.000.000" class="validate"/>
+				</div>
+				
+				<div class="input.field col s3">
 				CPF: <input type="text" value="" name="cpf"  placeholder="AA-00.000.000" class="validate"/>
+				</div>
+				
+				<div class="input.field col s3">
 				Data de Nascimento: <input type="text" value="" name="dataNascimento"  placeholder="AA-00.000.000" class="validate"/>
-				Endere�o: <input type="text" value="" name="endereco"  placeholder="AA-00.000.000" class="validate"/>
+				</div>
+				
+				
+				
 			
+			</div>
 				<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
 				
-				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+			<!-- 	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />  -->
 				
 			</form>
 		</div>
-	<h5>Lista de Alunos: </h5>
+		
+		<br>
+		<br>
+		<br>
+	<div class="card-panel">
+
+	<h5 class="center ">Lista de Alunos</h5>
+	</div>
 	
-	<table class="container tablelaAluno">
+	<div class=" row card-panel">
+	<table class="container tablelaAluno ">
+	
 	
 		<thead>
 			<tr>
@@ -67,7 +140,7 @@
 				<th>Matricula</th>
 				<th>CPF</th>
 				<th>Data de Nascimento</th>
-				<th>Endere�o</th>
+				<th>Endereço</th>
 				<th>Deletar</th>
 			</tr>
 		</thead>
@@ -80,14 +153,68 @@
 				<td><span th:text="${aluno.cpf}"></span></td>
 				<td><span th:text="${aluno.dataNascimento}"></span></td>
 				<td><span th:text="${aluno.endereco}"></span></td>
-				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('TA#deletarAluno').arg(0, aluno.rg).arg(0, aluno.matricula).arg(0, aluno.cpf).arg(0, aluno.dataNascimento).arg(0, aluno.endereco)).build()}"><i class="material-icons left">delete</i></a></td>
+				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('TC#deletarAluno').arg(0, aluno.rg).arg(0, aluno.matricula).arg(0, aluno.cpf).arg(0, aluno.dataNascimento).arg(0, aluno.endereco)).build()}"><i class="material-icons left">delete</i></a></td>
 			</tr>
 		</tbody>
-		
-	</table>
 	
+	</table>
+	</div>
+	
+	
+	<br>
+<br>
+<main></main>
+	<footer class="page-footer cor">
+		<div class="footer-copyright">
+			<div class="container">©Desenvolvido por 
+				<a class="hoverable" href="https://www.instagram.com/daryjanee/">Daryjane</a>,
+				<a class="hoverable" href="https://www.instagram.com/deboracoosta/">Débora</a>,
+				<a class="hoverable" href="https://www.instagram.com/evalter.tallyz/">Evalter</a>.				
+				
+				<a class="grey-text text-lighten-4 right"	href="https://www.twitter.com"> 
+					<img class="valign-wrapper hoverable" style="width: 20px; margin-left: 8px;" src="img/tw.png"></a>
+									
+				<a class="grey-text text-lighten-4 right"	href="https://www.facebook.com/"> 
+					<img class="valign-wrapper hoverable" style="width: 20px; margin-left: 8px; " src="img/face.png">  </a>
+					
+				<a class="grey-text text-lighten-4 right"	href="https://www.instagram.com/"> 
+					<img class="valign-wrapper hoverable" style="width: 20px; margin-left: 8px;" src="img/IG.png">  </a>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<!--JavaScript at end of body for optimized loading-->
+	<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 3500); // Change image every 2 seconds
+}
+</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', function() {
+		    var elems = document.querySelectorAll('.slider');
+		    var instances = M.Slider.init(elems, options);
+		  });
+	</script>
 </body>
-
 </html>
+

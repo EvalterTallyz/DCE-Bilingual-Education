@@ -12,9 +12,12 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dcebilingualeducation.model.Aluno;
+import com.dcebilingualeducation.model.Professor;
 import com.dcebilingualeducation.model.Turma;
 import com.dcebilingualeducation.repository.AlunoRepository;
 import com.dcebilingualeducation.repository.TurmaRepository;
+
+import com.dcebilingualeducation.repository.ProfessorRepository;
 
 @Controller
 public class TurmaController {
@@ -25,9 +28,15 @@ public class TurmaController {
 		@Autowired
 		private AlunoRepository ar;
 		
+		@Autowired
+		private ProfessorRepository pr;
+		
 		@RequestMapping(value="/cadastrarTurma", method=RequestMethod.GET)
-		public String form() {
-			return "turma/formTurma";	
+		public ModelAndView form() {
+			ModelAndView mv = new ModelAndView("turma/formTurma");
+			Iterable<Professor> professores =pr.findAll();
+			mv.addObject("professores", professores);
+			return mv;
 		}
 		
 		@RequestMapping(value="/cadastrarTurma", method=RequestMethod.POST)
@@ -62,6 +71,16 @@ public class TurmaController {
 			return mv;
 		}
 		
+		@RequestMapping("/turmasp")
+		public ModelAndView listaTurmasP(){
+			ModelAndView mv = new ModelAndView("turma/listarTurmaP");
+			Iterable<Turma> turmas = tr.findAll();
+			mv.addObject("turmas", turmas);
+			return mv;
+		}
+		
+		
+		
 		@RequestMapping("/deletarTurma")
 		public String deletarTurma(long codigo) {
 			Turma turma = tr.findByCodigo(codigo);
@@ -92,5 +111,7 @@ public class TurmaController {
 			String codigo = "" + codigoLong;
 			return "redirect:/" + codigo;
 		}
+		
+		
 	
 }

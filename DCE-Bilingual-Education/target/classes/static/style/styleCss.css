@@ -2,12 +2,27 @@
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: #ffffff;
    
+  }
+  
+  .nave{
+  background-color: #0D1D49;
   }
 
   main {
     flex: 1 0 auto;
   }
+  
+  .cor{
+  background-color: ;
+  }
+  
+  .page-footer {
+    padding-top: 0PX;
+    color: #fff;
+    background-color: #0D1D49;
+}
   
   
   

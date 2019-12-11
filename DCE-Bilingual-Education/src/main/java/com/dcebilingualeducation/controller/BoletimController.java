@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.dcebilingualeducation.model.Aluno;
 import com.dcebilingualeducation.model.Boletim;
+import com.dcebilingualeducation.repository.AlunoRepository;
 import com.dcebilingualeducation.repository.BoletimRepository;
 
 @Controller
@@ -19,10 +21,16 @@ public class BoletimController {
 		@Autowired
 		private BoletimRepository br;
 		
+		@Autowired
+		private AlunoRepository ar;
+		
 	
 		@RequestMapping(value = "/cadastrarBoletim", method = RequestMethod.GET)
-		private String form() {
-			return "boletim/formBoletim";
+		private ModelAndView formA() {
+			ModelAndView mv = new ModelAndView("boletim/formBoletim");
+			Iterable<Aluno> alunos =ar.findAll();
+			mv.addObject("alunos", alunos);
+			return mv;
 		}
 		
 		@RequestMapping(value = "/cadastrarBoletim", method = RequestMethod.POST)
@@ -42,6 +50,13 @@ public class BoletimController {
 		@RequestMapping("/boletins")
 		public ModelAndView ListaBoletim() {
 			ModelAndView mv = new ModelAndView("boletim/listarBoletim");
+			Iterable<Boletim> boletins =br.findAll();
+			mv.addObject("boletins", boletins);
+			return mv;
+		}
+		@RequestMapping("/boletinsA")
+		public ModelAndView ListaBoletimA() {
+			ModelAndView mv = new ModelAndView("boletim/listarBoletimA");
 			Iterable<Boletim> boletins =br.findAll();
 			mv.addObject("boletins", boletins);
 			return mv;

@@ -1,47 +1,68 @@
 <!DOCTYPE html>
-<html lang="PT-BR"
-
-	xmlns:th="http://thymeleaf.org"
+<html lang="PT-BR" xmlns:th="http://thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-	
-	<head>
-		<title>Cadastrar Professor</title>
-		<meta charset="utf-8">
-		
-		<!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      
-      <link rel="stylesheet" href="style/styleCss.css"/>
-      
-	</head>
-	<body>
+<head>
+<title>DCE Bilingual Education</title>
+<meta charset="utf-8">
+
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+
+<link type="text/css" rel="stylesheet" href="style/styleCss.css"
+	media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="icon" type="imagem/png" href="img/dcee.png" />
+
+</head>
+	<body class="indigo lighten-5">
+
+	<header>
 	
-		<header>
+	<nav class="nav-extended">
+		<div class="nave ">
+			<div class="nav-wrapper ">
+				<a class="brand-logo valign-wrapper " style="margin-left: 38%;" href="/"> 
+					<img class="valign-wrapper " style="width: 240px;  margin-top: 7px" src="img/DCE_Menu.png">
+				</a>
 	
-		<nav>
-		  <div class="nav-wrapper">
-		    <a class="brand-logo">Cadastrar Professores</a>
-		    <ul class="right hide-on-med-and-down">
-		     
-			<li><a href="/" class="waves-effect waves-light "><i class="material-icons">home</i></a></li>
-			<li><a href="/cadastrarProfessores" class="waves-effect waves-light "><i class="material-icons left">add_circle_outline</i>Cadastrar Professores</a></li>
-			<li><a href="/professores" class="waves-effect waves-light "><i class="material-icons left">view_list</i>Lista de Professores</a></li>
-			<li><a href="/fazerCadastro" class="waves-effect waves-light "><i class="material-icons left">fiber_new</i>Fazer Cadastro</a></li>
-			<li><a href="/cadastros" class="waves-effect waves-light "><i class="material-icons left">dehaze</i>Lista de Cadastros</a></li>
-	
-		    </ul>
-		  </div>
-		</nav>
-	
-	</header>
+			</div>
+				
+			<div class="navbar-fixed ">
+				<div class="nav-wrapper">     					 
+      					
+      					<ul class=" hide-on-med-and-down">
+							<li><a href="/indexAdmin" class="waves-effect waves-light hoverable"><i class="material-icons left">home</i>|</a></li>
+							<li><a href="/cadastrarProfessor" class="waves-effect waves-light hoverable"><i class="material-icons  left">person_add</i>Cadastrar Professor |</a></li>
+							<li><a href="/professores" class="waves-effect waves-light hoverable"><i class="material-icons left">format_list_bulleted</i>Lista de Professores |</a></li>
+							<li><a href="/cadastrarTurma" class="waves-effect waves-light hoverable"><i class="material-icons  left">add_circle</i>Adicionar Turma |</a></li>
+							<li><a href="/turmas" class="waves-effect waves-light hoverable"><i class="material-icons left">storage</i>Turmas |</a></li>
+							
+						</ul>
+						
+						<ul class="" style="margin-left: 91%;">
+							<li><a href="/logout" class="waves-effect waves-light  btn white hoverable "><span class="indigo-text ">Sair</span></a></li>
+						</ul>
+      					
+    			</div>
+    		</div>
+				
+		</div>		
+	</nav>
+
+</header>
+<br>
+<br>
 	
 		<form class="container" method="post">
-			<div class="row">
+			<div class="row card-panel">
 				<div class="input.field col s12">
 					Nome Completo: <input type="text" value="" name="nome"/>
 				</div>
@@ -70,6 +91,26 @@
 		</form>
 		<th:block th:include="mensagemValidacao"></th:block>
 		
+			
+<main></main>	
+	<footer class="page-footer cor">
+		<div class="footer-copyright">
+			<div class="container">©Desenvolvido por 
+				<a class="hoverable" href="https://www.instagram.com/daryjanee/">Daryjane</a>,
+				<a class="hoverable" href="https://www.instagram.com/deboracoosta/">Débora</a>,
+				<a class="hoverable" href="https://www.instagram.com/evalter.tallyz/">Evalter</a>.				
+				
+				<a class="grey-text text-lighten-4 right"	href="https://www.twitter.com"> 
+					<img class="valign-wrapper hoverable" style="width: 20px; margin-left: 8px;" src="img/tw.png"></a>
+									
+				<a class="grey-text text-lighten-4 right"	href="https://www.facebook.com/"> 
+					<img class="valign-wrapper hoverable" style="width: 20px; margin-left: 8px; " src="img/face.png">  </a>
+					
+				<a class="grey-text text-lighten-4 right"	href="https://www.instagram.com/"> 
+					<img class="valign-wrapper hoverable" style="width: 20px; margin-left: 8px;" src="img/IG.png">  </a>
+			</div>
+		</div>
+	</footer>
 		
 		<!--JavaScript at end of body for optimized loading-->
    		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>

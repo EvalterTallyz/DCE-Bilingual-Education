@@ -23,28 +23,123 @@
 
 </head>
 
-<body>
+<body class="indigo lighten-5">
 
 	<header>
-
-		<div class="navbar-fixed">
-			<nav>
-				<div class="nav-wrapper">
-					<a class="brand-logo"> DCE Bilingual Education </a>
-					<ul class="right hide-on-med-and-down">
-
-						<li><a href="/Home_Aluno" class="waves-effect waves-light "><i class="material-icons">home</i></a></li>
-						<li><a href="/" class="waves-effect waves-light "><i class="material-icons left">view_list</i>Turmas Virtuais</a></li>
-						<li><a href="/" class="waves-effect waves-light "><i class="material-icons left">view_list</i>Boletim</a></li>
-						<li><a href="/logout" class="waves-effect waves-light btn"><i class="material-icons ">Sair</i></a></li>
-
-					</ul>
-				</div>
-			</nav>
-
-		</div>
-
-	</header>
 	
+	<nav class="nav-extended">
+		<div class="nave ">
+			<div class="nav-wrapper ">
+				<a class="brand-logo valign-wrapper " style="margin-left: 38%;" href="/"> 
+					<img class="valign-wrapper " style="width: 240px;  margin-top: 7px" src="img/DCE_Menu.png">
+				</a>
+	
+			</div>
+				
+			<div class="navbar-fixed ">
+				<div class="nav-wrapper">     					 
+      					
+      					<ul class=" hide-on-med-and-down">
+							<li><a href="/Home_Aluno" class="waves-effect waves-light hoverable"><i class="material-icons left">home</i>|</a></li>
+							<li><a href="cursos" class="waves-effect waves-light hoverable"><i class="material-icons left">view_list</i>Cursos Oferecidos |</a></li>
+							<li><a href="/boletinsA" class="waves-effect waves-light hoverable"><i class="material-icons left">view_list</i>Notas |</a></li>
+							
+						</ul>
+						
+						<ul class="" style="margin-left: 91%;">
+							<li><a href="/logout" class="waves-effect waves-light  btn white hoverable "><span class="indigo-text ">Sair</span></a></li>
+						</ul>
+      					
+    			</div>
+    		</div>
+				
+		</div>		
+	</nav>
+
+</header>
+<br>
+	<br>
+	<br>
+	<br>
+	<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="img/img1.png" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="img/img2.jpeg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="img/img3.jpeg" style="width:100%">
+</div>
+
+</div>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+<br>
+<br>
+<main></main>
+	<footer class="page-footer cor">
+		<div class="footer-copyright">
+			<div class="container">©Desenvolvido por 
+				<a class="hoverable" href="https://www.instagram.com/daryjanee/">Daryjane</a>,
+				<a class="hoverable" href="https://www.instagram.com/deboracoosta/">Débora</a>,
+				<a class="hoverable" href="https://www.instagram.com/evalter.tallyz/">Evalter</a>.				
+				
+				<a class="grey-text text-lighten-4 right"	href="https://www.twitter.com"> 
+					<img class="valign-wrapper hoverable" style="width: 20px; margin-left: 8px;" src="img/tw.png"></a>
+									
+				<a class="grey-text text-lighten-4 right"	href="https://www.facebook.com/"> 
+					<img class="valign-wrapper hoverable" style="width: 20px; margin-left: 8px; " src="img/face.png">  </a>
+					
+				<a class="grey-text text-lighten-4 right"	href="https://www.instagram.com/"> 
+					<img class="valign-wrapper hoverable" style="width: 20px; margin-left: 8px;" src="img/IG.png">  </a>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<!--JavaScript at end of body for optimized loading-->
+	<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 3500); // Change image every 2 seconds
+}
+</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', function() {
+		    var elems = document.querySelectorAll('.slider');
+		    var instances = M.Slider.init(elems, options);
+		  });
+	</script>
 </body>
 </html>
+
