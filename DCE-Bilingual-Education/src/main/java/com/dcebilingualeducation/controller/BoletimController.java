@@ -20,17 +20,11 @@ public class BoletimController {
 
 		@Autowired
 		private BoletimRepository br;
-		
-		@Autowired
-		private AlunoRepository ar;
-		
+				
 	
 		@RequestMapping(value = "/cadastrarBoletim", method = RequestMethod.GET)
-		private ModelAndView formA() {
-			ModelAndView mv = new ModelAndView("boletim/formBoletim");
-			Iterable<Aluno> alunos =ar.findAll();
-			mv.addObject("alunos", alunos);
-			return mv;
+		private String form() {
+			return "boletim/formBoletim";
 		}
 		
 		@RequestMapping(value = "/cadastrarBoletim", method = RequestMethod.POST)
